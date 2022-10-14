@@ -31,3 +31,19 @@ AND  <AQUI ESPECIFICAR EL PATRON A BUSCAR>
 DELETE FROM wp_posts WHERE post_type = ‘attachment’ AND   <AQUI ESPECIFICAR EL PATRON A BUSCAR>
 
 /* fin*/
+    
+    
+    
+// Poner landing para usuarios no logados o actividad para usuarios logados.
+if( is_user_logged_in() ) {
+  $page = get_page_by_path( 'activity'); 
+  update_option( 'page_on_front', $page->ID );
+  update_option( 'show_on_front', 'page' );
+  }
+  else {
+  $page = get_page_by_path( 'pagina-inicio' );
+  update_option( 'page_on_front', $page->ID );
+  update_option( 'show_on_front', 'page' );
+  }
+  
+    
